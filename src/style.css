@@ -1,6 +1,16 @@
+/*
+  ================= CIMV Anki template Basic ===================
+  Readme: https://github.com/joaoantoniosouza/cimv-anki-template
+  My GitHub: https://github.com/joaoantoniosouza
+  ==============================================================
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
 /* ===== ROOT VARS ===== */
 :root {
   --font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-ipa: "Charis SIL", serif;
   --font-size-regular: 18px;
   --font-size-small: 14px;
   --max-width: 45em;
@@ -12,7 +22,8 @@
   --color-green-light: #91c83e;
   --color-yellow: #fbe126;
   --color-red: #bf4042;
-  --color-gray: #eee;
+  --color-gray-light: #eee;
+  --color-gray-medium: #aaa;
   --color-gray-dark: #444;
   --color-white: #fafafa;
   --color-black: #232325;
@@ -25,26 +36,8 @@
   box-sizing: border-box;
 }
 
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1px;
-}
-
-.col {
-  flex: 0 0 auto;
-}
-
-.deck-name {
-  font-size: 0.8em;
-  color: #666;
-  text-align: right;
-}
-
 .card {
-  background-color: var(--color-gray);
+  background-color: var(--color-gray-light);
   color: var(--color-black);
   font-family: var(--font-main);
   font-size: var(--font-size-regular);
@@ -57,15 +50,21 @@
   max-width: var(--max-width);
   margin: 10px auto;
   padding: 1.5em;
-  text-align: left;
-  border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .front {
   font-size: 1.4em;
   font-weight: 400;
-  margin: 20px 0 20px;
+  margin: 20px 0 15px;
+  text-align: center;
+}
+
+hr {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(200, 200, 200, 0.5);
+  padding: 0;
 }
 
 .back {
@@ -75,21 +74,23 @@
 }
 
 .ipa {
-  display: inline-block;
-  background-color: var(--color-gray);
+  display: table;
+  margin: 8px auto 0;
+  padding: 5px 10px;
+  background-color: var(--color-gray-light);
   color: var(--color-red);
   border: 1px solid #ddd;
   border-radius: 6px;
-  padding: 5px 10px;
-  margin-top: 8px;
-  font-family: "Charis SIL", Courier, monospace;
-  font-size: 14px;
+  font-family: var(--font-ipa);
+  font-size: 16px;
   line-height: 1.5;
   overflow-wrap: break-word;
+  white-space: normal;
 }
 
 .audio {
-  margin: 10px 0 15px 0;
+  margin: 5px 0 5px 0;
+  text-align: center;
 }
 
 #tags {
@@ -99,6 +100,7 @@
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 0.2em;
+  margin: 10px 0;
 }
 
 .tag {
@@ -118,33 +120,26 @@
   text-decoration: none;
 }
 
-#logo {
-  flex-shrink: 0;
+.footer {
+  display: block;
+  text-align: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.footer div {
+  text-align: center;
+  margin: 10px auto;
 }
 
 #logo img {
-  max-width: 100px;
-  height: 50px;
-  display: block;
-  margin-left: auto;
+  max-width: 80px;
+  height: 30px;
 }
 
-hr {
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px dotted #aaa;
-  padding: 0;
-}
-
-@media (max-width: 600px) {
-  .container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .col {
-    margin-top: 0.3em;
-  }
+#deck-name {
+  font-size: 0.8em;
+  color: var(--color-gray-dark);
 }
 
 /* ===== DARK MODE ===== */
@@ -166,6 +161,14 @@ hr {
   background-color: var(--color-black);
   color: var(--color-blue-light);
   border: 1px solid var(--color-blue-light);
+}
+
+.card.night_mode #deck-name {
+  color: var(--color-gray-medium);
+}
+
+.card.night_mode hr {
+  border-bottom: 1px solid rgba(100, 100, 100, 0.5);
 }
 
 /* ===== EMPHASIS ===== */

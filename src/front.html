@@ -1,5 +1,10 @@
+<!-- 
+  ================= CIMV Anki template Basic ===================
+  Readme: https://github.com/joaoantoniosouza/cimv-anki-template
+  My GitHub: https://github.com/joaoantoniosouza
+  ==============================================================
+-->
 <div class="card-content">
-  <div class="deck-name">{{Deck}}</div>
   {{#IPA}}
   <div class="ipa">{{IPA}}</div>
   {{/IPA}}
@@ -7,32 +12,35 @@
   {{#Audio}}
   <div class="audio">{{Audio}}</div>
   {{/Audio}}
-  <div class="container">
-    {{#Tags}}
-    <div id="tags" class="col">{{clickable::Tags}}</div>
-    {{/Tags}}
-    <div id="logo" class="col">
-      <img
-        src="https://cadastro.mairovergara.com/media/img/logoRuido.svg?68d6f3e6df05f"
-      />
-    </div>
-  </div>
-  <script>
-    // Create a <span> with class tag and append it to the tags container with the tag text
-    (() => {
-      const container = document.getElementById("tags");
-      if (!container) return;
-      const tagsTextRaw = container.innerText.trim();
-      if (!tagsTextRaw) return;
-      const tags = tagsTextRaw.split(/\s+/);
-      container.innerHTML = "";
-      tags.forEach((tag) => {
-        const span = document.createElement("span");
-        span.className = "tag";
-        span.innerText = tag;
-        span.onclick = () => pycmd("tag:" + tag);
-        container.appendChild(span);
-      });
-    })();
-  </script>
+  <!-- ## -->
+  {{#Tags}}
+  <hr />
+  <div id="tags">{{clickable::Tags}}</div>
+  {{/Tags}}
 </div>
+<div class="footer">
+  <div id="deck-name">{{Deck}}</div>
+  <div id="logo">
+    <img
+      src="https://cadastro.mairovergara.com/media/img/logoRuido.svg?68d6f3e6df05f"
+    />
+  </div>
+</div>
+<script>
+  // Create a <span> with class tag and append it to the tags container with the tag text
+  (() => {
+    const container = document.getElementById("tags");
+    if (!container) return;
+    const tagsTextRaw = container.innerText.trim();
+    if (!tagsTextRaw) return;
+    const tags = tagsTextRaw.split(/\s+/);
+    container.innerHTML = "";
+    tags.forEach((tag) => {
+      const span = document.createElement("span");
+      span.className = "tag";
+      span.innerText = tag;
+      span.onclick = () => pycmd("tag:" + tag);
+      container.appendChild(span);
+    });
+  })();
+</script>
