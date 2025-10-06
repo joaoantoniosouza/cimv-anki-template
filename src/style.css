@@ -1,0 +1,191 @@
+/* ===== ROOT VARS ===== */
+:root {
+  --font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-size-regular: 18px;
+  --font-size-small: 14px;
+  --max-width: 45em;
+
+  /* Mairo Vergara color palette */
+  --color-blue-dark: #2397ad;
+  --color-blue-light: #2bb8d3;
+  --color-green: #6bb200;
+  --color-green-light: #91c83e;
+  --color-yellow: #fbe126;
+  --color-red: #bf4042;
+  --color-gray: #eee;
+  --color-gray-dark: #444;
+  --color-white: #fafafa;
+  --color-black: #232325;
+  --color-black-light: #3a3a3f;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1px;
+}
+
+.col {
+  flex: 0 0 auto;
+}
+
+.deck-name {
+  font-size: 0.8em;
+  color: #666;
+  text-align: right;
+}
+
+.card {
+  background-color: var(--color-gray);
+  color: var(--color-black);
+  font-family: var(--font-main);
+  font-size: var(--font-size-regular);
+  margin: 10px auto;
+  padding: 1.5em;
+}
+
+.card-content {
+  background-color: var(--color-white);
+  max-width: var(--max-width);
+  margin: 10px auto;
+  padding: 1.5em;
+  text-align: left;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.front {
+  font-size: 1.4em;
+  font-weight: 400;
+  margin: 20px 0 20px;
+}
+
+.back {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 1em;
+}
+
+.ipa {
+  display: inline-block;
+  background-color: var(--color-gray);
+  color: var(--color-red);
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 5px 10px;
+  margin-top: 8px;
+  font-family: "Charis SIL", Courier, monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
+.audio {
+  margin: 10px 0 15px 0;
+}
+
+#tags {
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.2em;
+}
+
+.tag {
+  background-color: transparent;
+  border: 1px solid var(--color-blue-light);
+  color: var(--color-blue-light);
+  font-size: 0.8em;
+  padding: 0.3em 0.6em;
+  border-radius: 6px;
+  cursor: default;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  border-color: var(--color-blue-dark);
+  color: var(--color-blue-dark);
+  text-decoration: none;
+}
+
+#logo {
+  flex-shrink: 0;
+}
+
+#logo img {
+  max-width: 100px;
+  height: 50px;
+  display: block;
+  margin-left: auto;
+}
+
+hr {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px dotted #aaa;
+  padding: 0;
+}
+
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .col {
+    margin-top: 0.3em;
+  }
+}
+
+/* ===== DARK MODE ===== */
+.card.night_mode {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.card.night_mode .card-content {
+  background-color: var(--color-black-light);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card.night_mode .back {
+  color: #e0e0e0;
+}
+
+.card.night_mode .ipa {
+  background-color: var(--color-black);
+  color: var(--color-blue-light);
+  border: 1px solid var(--color-blue-light);
+}
+
+/* ===== EMPHASIS ===== */
+b,
+strong {
+  color: var(--color-blue-dark);
+  font-weight: bolder;
+}
+
+i,
+em {
+  color: var(--color-red);
+}
+
+a {
+  color: var(--color-blue-light);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-blue-dark);
+  text-decoration: underline;
+}
